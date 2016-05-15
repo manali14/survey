@@ -13,6 +13,7 @@
 //= require jquery.dataTables.bootstrap.min
 //= require dataTables.colVis.min
 //= require dataTables.tableTools.min
+//= require jquery.validate.min
 //= require_tree .
 //= require_self
 

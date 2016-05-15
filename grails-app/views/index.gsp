@@ -1,3 +1,4 @@
+<%@ page import="enums.Gender" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,56 +26,59 @@
 
                             <p>Enter your details to begin:</p>
 
-                            <form>
+                            <g:form controller="user" action="register" name="candidateRegisterForm">
                                 <fieldset>
                                     <label class="block clearfix">
                                         <span class="block input-icon input-icon-right">
-                                            <input type="email" class="form-control" placeholder="Email">
+                                            <input type="email" class="form-control" placeholder="Email" name="email">
                                             <i class="ace-icon fa fa-envelope"></i>
                                         </span>
                                     </label>
 
                                     <label class="block clearfix">
                                         <span class="block input-icon input-icon-right">
-                                            <input type="text" class="form-control" placeholder="Name">
+                                            <input type="text" minlength="2" class="form-control" placeholder="Name"
+                                                   name="name">
                                             <i class="ace-icon fa fa-user"></i>
                                         </span>
                                     </label>
 
                                     <label class="block clearfix">
                                         <span class="block input-icon input-icon-right">
-                                            <input type="password" class="form-control" placeholder="Password">
-                                            <i class="ace-icon fa fa-lock"></i>
+                                            <input type="text" name="mobileNum" class="form-control"
+                                                   placeholder="Mobile Number">
                                         </span>
                                     </label>
 
                                     <label class="block clearfix">
                                         <span class="block input-icon input-icon-right">
-                                            <input type="password" class="form-control" placeholder="Repeat password">
-                                            <i class="ace-icon fa fa-retweet"></i>
+                                            <span class="pull-left">
+                                                <input type="radio" name="gender" value="${Gender.MALE}">Male
+                                            </span>
+                                            <span class="margin-left20">
+                                                <input type="radio" name="gender" value="${Gender.FEMALE}">Female
+                                            </span>
                                         </span>
                                     </label>
 
                                     <label class="block">
-                                        <input type="checkbox" class="ace">
                                         <span class="lbl">
-                                            I accept the
-                                            <a href="#">User Agreement</a>
+                                            I accept the Terms & Conditions
                                         </span>
+                                        <input type="checkbox" name="agree">
                                     </label>
 
                                     <div class="space-24"></div>
 
                                     <div class="clearfix">
 
-                                        <button type="button" class="width-65 pull-right btn btn-sm btn-success">
-                                            <span class="bigger-110">Register</span>
+                                        <input type="submit"
+                                               class="width-65 pull-right btn btn-sm btn-success bigger-110"
+                                               value="Register">
 
-                                            <i class="ace-icon fa fa-arrow-right icon-on-right"></i>
-                                        </button>
                                     </div>
                                 </fieldset>
-                            </form>
+                            </g:form>
                         </div>
 
                     </div><!-- /.widget-body -->
