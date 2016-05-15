@@ -3,6 +3,7 @@
 *.ipr
 *.iws
 *.swp
+*.tld
 .classpath
 *.out
 out/
