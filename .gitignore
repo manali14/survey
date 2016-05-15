@@ -1,0 +1,15 @@
+*.iml
+*.log
+*.ipr
+*.iws
+*.swp
+.classpath
+*.out
+out/
+target/
+classes/
+.idea/
+.settings/
+web-app/WEB-INF/classes/
+web-app/uploads/
+.slcache/
