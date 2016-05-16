@@ -14,10 +14,9 @@ $('#candidateRegisterForm').validate({
             required: true,
             email: true
         },
-        mobileNum: {
+        mobileNumber: {
             required: true,
-            minlength: 9,
-            maxlength: 10,
+            length: 10,
             number: true
         },
         agree: "required"
@@ -31,12 +30,21 @@ $('#candidateRegisterForm').validate({
             email: "Please enter a valid email address",
             required: "Please enter your Email"
         },
-        mobileNum: {
+        mobileNumber: {
             required: "Please enter your 10 digit Mobile Number",
-            minlength: "Please enter valid Mobile Number",
-            maxlength: "Please enter valid Mobile Number",
+            length: "Please enter valid Mobile Number",
             number: "Please enter valid Mobile Number"
         },
         agree: "Please accept our Terms & Conditions"
     }
+});
+$('#back').on('click', function () {
+    history.back();
+});
+$('#playQuiz').on('click', function () {
+    var id = $(this).data('quiz-id');
+    var url = $(this).data('url');
+    $.get(url, {id: id}, function (response) {
+        $('.playQuiz').html(response);
+    })
 });

@@ -6,6 +6,14 @@
     margin-left: 20px;
 }
 
+.margin-top20 {
+    margin-top: 20px;
+}
+
+.margin20 {
+    margin: 20px;
+}
+
 .error {
     color: red;
     font-style: italic;
@@ -17,4 +25,14 @@ input[type=number]::-webkit-outer-spin-button {
     -moz-appearance: none;
     appearance: none;
     margin: 0;
+}
+
+.quizDiv {
+    margin-left: 32%;
+    text-align: center;
+}
+
+.playQuiz {
+    margin-left: 17%;
+    text-align: center;
 }
