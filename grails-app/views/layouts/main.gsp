@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>
-        Survey | <g:layoutTitle default="Home"/>
+        Implicit Theories | <g:layoutTitle default="Home"/>
     </title>
     <link rel="shortcut icon" href="${assetPath(src: 'favicon.ico')}" type="image/x-icon">
 
@@ -21,7 +21,7 @@
         <div class="navbar-header pull-left">
             <a href="${createLink(uri: '/')}" class="navbar-brand">
                 <small>
-                    SudoFire | Survey
+                    SudoFire | Implicit Theories
                 </small>
             </a>
         </div>
