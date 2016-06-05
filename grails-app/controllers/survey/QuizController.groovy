@@ -6,6 +6,7 @@ import enums.EntityQuestionaireResponse
 import enums.QuestionType
 import enums.StudyType
 import grails.converters.JSON
+import org.apache.commons.lang.time.DurationFormatUtils
 
 class QuizController {
 
@@ -82,6 +83,12 @@ class QuizController {
     }
 
     def quit(Long candidateId) {
+        Candidate candidate = Candidate.get(candidateId)
+        if (candidate) {
+            String timeSpent = DurationFormatUtils.formatDuration(params.long('timeElapsed'), "HH:mm:ss,SSS")
+            candidate.timeSpent = timeSpent
+            candidate.save(flush: true)
+        }
         render(template: '/quiz/thankYouPage')
     }
 }

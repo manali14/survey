@@ -10,6 +10,7 @@ class Candidate {
     String email
     String mobileNumber
     String school
+    String timeSpent
     Integer age
     Date dateCreated
     Gender gender
@@ -20,5 +21,6 @@ class Candidate {
     static constraints = {
         email nullable: true
         name nullable: true
+        timeSpent nullable: true
     }
 }

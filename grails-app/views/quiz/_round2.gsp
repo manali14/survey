@@ -14,10 +14,14 @@
     <a href="#" class="btn btn-success margin-top20" id="quit" onclick="quit()">Quit</a>
 </g:if>
 <script type="text/javascript">
+    var startDate = new Date();
+    var startTime = startDate.getTime();
     function quit() {
+        var endDate = new Date();
+        var endTime = endDate.getTime();
         $.ajax({
             url: '/quiz/quit',
-            data: {candidate: $('#candidateId').val()},
+            data: {candidateId: $('#candidateId').val(), timeElapsed: (endTime - startTime)},
             success: function (response) {
                 $('.widget-main').html(response);
             }
