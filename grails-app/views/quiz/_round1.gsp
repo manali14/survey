@@ -10,7 +10,9 @@ are stuck or not able to find the answer, you can chose to quit the study.
     <div class="margin-top20">
         <strong>Q${i + 1}.</strong>  ${question?.description}<br/>
         <input type="text" name="question[${i}]" placeholder="Answer"
-               oninput="checkAnswer($(this), ${question?.id})" maxlength="${question?.description?.length()}"/>
+               oninput="checkAnswer($(this), ${question?.id}, $(this).data('description'))"
+               maxlength="${question?.description?.length()}"
+               data-description="${question?.description}"/>
     </div>
 </g:each>
 

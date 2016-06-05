@@ -11,7 +11,9 @@ class Candidate {
     String mobileNumber
     String school
     String timeSpent
+    String timeSpentOnSecondAnagram
     Integer age
+    Boolean isSecondAnagramCorrect
     Date dateCreated
     Gender gender
     Caste caste
@@ -22,5 +24,7 @@ class Candidate {
         email nullable: true
         name nullable: true
         timeSpent nullable: true
+        timeSpentOnSecondAnagram nullable: true
+        isSecondAnagramCorrect nullable: true
     }
 }

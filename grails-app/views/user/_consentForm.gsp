@@ -35,7 +35,7 @@
         </label>
 
         <label class="block clearfix">
-            <label for="caste" class="col-lg-2">Case*</label>
+            <label for="caste" class="col-lg-2">Caste*</label>
 
             <span class="block input-icon input-icon-right col-lg-10">
                 <span class="pull-left">

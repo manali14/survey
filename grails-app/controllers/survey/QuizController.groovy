@@ -82,13 +82,29 @@ class QuizController {
         }
     }
 
-    def quit(Long candidateId) {
-        Candidate candidate = Candidate.get(candidateId)
+    def quit(AnagramCO anagramCO) {
+        Candidate candidate = anagramCO.candidate
+        Question question = anagramCO.question
         if (candidate) {
             String timeSpent = DurationFormatUtils.formatDuration(params.long('timeElapsed'), "HH:mm:ss,SSS")
-            candidate.timeSpent = timeSpent
+            if (question.correctResponse) {
+                candidate.timeSpentOnSecondAnagram = timeSpent
+                candidate.isSecondAnagramCorrect = (anagramCO.answer && (anagramCO.answer == anagramCO.question?.correctResponse))
+                println(anagramCO.answer && (anagramCO.answer == anagramCO.question?.correctResponse))
+            } else {
+                candidate.timeSpent = timeSpent
+            }
             candidate.save(flush: true)
         }
         render(template: '/quiz/thankYouPage')
+    }
+
+    def nextAnagram(AnagramCO anagramCO) {
+        String timeSpent = DurationFormatUtils.formatDuration(params.long('timeElapsed'), "HH:mm:ss,SSS")
+        Candidate candidate = anagramCO.candidate
+        candidate.timeSpent = timeSpent
+        candidate.save(flush: true)
+        Question nextQuestion = Question.findByQuestionTypeAndIdNotInList(QuestionType.UNSOLVABLE_ANAGRAM_STUDY2, [anagramCO?.question?.id])
+        render(template: '/quiz/round2Anagram', model: [question: nextQuestion, candidate: candidate])
     }
 }

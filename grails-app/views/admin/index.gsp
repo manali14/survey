@@ -28,7 +28,9 @@
             <th class="sorting_disabled" aria-label="">Date</th>
             <th class="sorting_disabled" aria-label="">Caste</th>
             <th class="sorting_disabled" aria-label="">Entity Questionaire Score</th>
-            <th class="sorting_disabled" aria-label="">Time Spent</th>
+            <th class="sorting_disabled" aria-label="">Time Spent on Anagram 1</th>
+            <th class="sorting_disabled" aria-label="">Time Spent on Anagram 2</th>
+            <th class="sorting_disabled" aria-label="">Is Anagram 2 Correct</th>
         </tr>
         </thead>
 
@@ -45,6 +47,8 @@
                 <td>${candidate?.caste}</td>
                 <td>${candidate?.entityQuestionaireScore}</td>
                 <td>${candidate?.timeSpent}</td>
+                <td>${candidate?.timeSpentOnSecondAnagram}</td>
+                <td>${candidate?.isSecondAnagramCorrect}</td>
             </tr>
         </g:each>
         </tbody>

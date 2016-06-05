@@ -69,9 +69,9 @@ $('#candidateRegisterForm').on('submit', function (e) {
     });
 });
 
-function checkAnswer(obj, questionId) {
+function checkAnswer(obj, questionId, description) {
     removePreviousOptions(obj);
-    if (obj.val().trim().length == 4) {
+    if (obj.val().trim().length == description.length) {
         $.ajax({
             url: "/quiz/checkAnangramAnswer",
             data: {answer: obj.val().trim(), question: questionId},
@@ -96,9 +96,19 @@ function removePreviousOptions(obj) {
     obj.parent().find($('.cross')).remove();
 }
 
-function checkUnsolvableAnswer(obj, description) {
-    removePreviousOptions(obj);
-    if (obj.val().trim().length == description.length) {
-        obj.after('<i class="ace-icon fa fa-times cross"></i>');
-    }
+function quit() {
+    var endDate = new Date();
+    var endTime = endDate.getTime();
+    $.ajax({
+        url: '/quiz/quit',
+        data: {
+            candidate: $('#candidateId').val(),
+            timeElapsed: (endTime - startTime),
+            question: $('#questionId').val(),
+            answer: $('#answer').val()
+        },
+        success: function (response) {
+            $('.widget-main').html(response);
+        }
+    })
 }

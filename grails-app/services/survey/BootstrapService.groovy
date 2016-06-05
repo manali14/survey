@@ -33,8 +33,7 @@ class BootstrapService {
             new Question(description: "KOOB", correctResponse: "BOOK", questionType: QuestionType.SIMPLE_ANAGRAM).save(flush: true)
             new Question(description: "EOCPMLTEET", questionType: QuestionType.UNSOLVABLE_ANAGRAM_STUDY1).save(flush: true)
             new Question(description: "LOCOEGLE", questionType: QuestionType.UNSOLVABLE_ANAGRAM_STUDY2).save(flush: true)
-            new Question(description: "OPSSIBLE", questionType: QuestionType.UNSOLVABLE_ANAGRAM_STUDY2).save(flush: true)
+            new Question(description: "OPSSIBLE", questionType: QuestionType.UNSOLVABLE_ANAGRAM_STUDY2, correctResponse: "POSSIBLE").save(flush: true)
         }
-
     }
 }
