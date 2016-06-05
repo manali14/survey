@@ -20,6 +20,11 @@ class BootstrapService {
             new Question(description: "I believe I can always substantially improve on my intelligence", questionType: QuestionType.ENTITY_QUESTIONAIRE).save(flush: true)
             new Question(description: "Regardless of my current intelligence level, I think I have the capacity to change it quite a bit.", questionType: QuestionType.ENTITY_QUESTIONAIRE).save(flush: true)
             new Question(description: "I believe I have the ability to change my basic intelligence level considerable over time.", questionType: QuestionType.ENTITY_QUESTIONAIRE).save(flush: true)
+            new Question(description: "RIFE", correctResponse: "FIRE", questionType: QuestionType.SIMPLE_ANAGRAM).save(flush: true)
+            new Question(description: "KOOB", correctResponse: "BOOK", questionType: QuestionType.SIMPLE_ANAGRAM).save(flush: true)
+            new Question(description: "EOCPMLTEET", questionType: QuestionType.UNSOLVABLE_ANAGRAM_STUDY1).save(flush: true)
+            new Question(description: "LOCOEGLE", questionType: QuestionType.UNSOLVABLE_ANAGRAM_STUDY2).save(flush: true)
+            new Question(description: "OPSSIBLE", questionType: QuestionType.UNSOLVABLE_ANAGRAM_STUDY2).save(flush: true)
         }
 
     }

@@ -29,6 +29,12 @@
 </div>
 
 <div class="main-container ace-save-state" id="main-container">
+    <div class="alert report" role="alert" id="report">
+        <button type="button" class="close" onclick="hideReport()" aria-label="Close"><span
+                aria-hidden="true">x</span></button>
+        <h4 class="reportText">Message</h4>
+    </div>
+
     <div class="main-content">
         <div class="main-content-inner">
             <g:layoutBody/>

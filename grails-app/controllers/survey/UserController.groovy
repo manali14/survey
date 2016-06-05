@@ -13,7 +13,7 @@ class UserController {
             render(template: '/user/entityQuestionaire', model: [candidateId: candidate?.id])
         } else {
             flash.error = message(code: 'candidate.registration.error')
-            render([fail: "Error while Registration. Please try again. ${candidateCO.errors.allErrors*.defaultMessage}"] as JSON)
+            render([fail: "Error while Registration. Please try again."] as JSON)
         }
     }
 }

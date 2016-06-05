@@ -2,6 +2,7 @@ package survey
 
 import enums.Caste
 import enums.Gender
+import enums.StudyType
 
 class Candidate {
 
@@ -13,6 +14,7 @@ class Candidate {
     Date dateCreated
     Gender gender
     Caste caste
+    StudyType studyType
     Integer entityQuestionaireScore = 0
 
     static constraints = {

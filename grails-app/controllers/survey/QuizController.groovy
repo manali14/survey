@@ -2,16 +2,17 @@ package survey
 
 import commandObjects.EntityQuestionaireCO
 import enums.EntityQuestionaireResponse
+import enums.StudyType
 import grails.converters.JSON
 
 class QuizController {
 
     def study1() {
-
+        [studyType: StudyType.STUDY1]
     }
 
     def study2() {
-
+        [studyType: StudyType.STUDY2]
     }
 
     def study3() {

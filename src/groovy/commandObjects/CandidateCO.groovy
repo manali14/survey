@@ -2,6 +2,7 @@ package commandObjects
 
 import enums.Caste
 import enums.Gender
+import enums.StudyType
 import grails.validation.Validateable
 
 @Validateable
@@ -13,6 +14,7 @@ class CandidateCO {
     Integer age
     Gender gender
     Caste caste
+    StudyType studyType
 
     static constraints = {
         email email: true, nullable: true

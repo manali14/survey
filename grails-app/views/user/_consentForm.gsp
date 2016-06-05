@@ -1,5 +1,6 @@
 <%@ page import="enums.Caste; enums.Gender" %>
 <g:form name="candidateRegisterForm" role="form">
+    <input type="text" value="${studyType}" style="display: none" name="studyType"/>
     <fieldset>
 
         <label class="block clearfix">

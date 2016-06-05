@@ -61,7 +61,7 @@ $('#candidateRegisterForm').on('submit', function (e) {
         data: data,
         success: function (response) {
             if (response.fail) {
-                showError(response.fail);
+                warningReport(response.fail);
             } else {
                 $('.widget-main').html(response);
             }
