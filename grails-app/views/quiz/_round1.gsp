@@ -8,7 +8,7 @@ are stuck or not able to find the answer, you can chose to quit the study.
 
 <g:each in="${Question.findAllByQuestionType(QuestionType.SIMPLE_ANAGRAM)}" status="i" var="question">
     <div class="margin-top20">
-        <strong>Q${i + 1}.</strong>  ${question?.description}<br/>
+        <strong>Eg${i + 1}.</strong>  ${question?.description}<br/>
         <input type="text" name="question[${i}]" placeholder="Answer"
                oninput="checkAnswer($(this), ${question?.id}, $(this).data('description'))"
                maxlength="${question?.description?.length()}"
