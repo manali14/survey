@@ -11,6 +11,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <asset:stylesheet src="application.css"/>
     <g:layoutHead/>
+    <script>
+        var errorMessage = "${flash.error}";
+        var successMessage = "${flash.success}";
+        var infoMessage = "${flash.info}";
+    </script>
 </head>
 
 <body class="login-layout light-login">

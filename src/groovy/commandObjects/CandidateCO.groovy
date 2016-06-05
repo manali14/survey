@@ -23,6 +23,7 @@ class CandidateCO {
                 return 'candidate.mobile.number.invalid'
             }
         }
+        name nullable: true
         school nullable: false
         age nullable: false
         gender nullable: false

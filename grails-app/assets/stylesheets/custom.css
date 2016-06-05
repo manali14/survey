@@ -45,3 +45,22 @@ input[type=number]::-webkit-outer-spin-button {
 #report {
     display: none;
 }
+
+.tickMark {
+    color: green !important;
+    font-size: x-large !important;
+}
+
+.cross {
+    color: red !important;
+    font-size: x-large !important;
+}
+
+.thankYou {
+    font-size: 50px;
+    font-family: initial;
+    color: #132A56;
+    text-align: center;
+    font-style: oblique;
+    font-variant: small-caps;
+}

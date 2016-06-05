@@ -1,7 +1,9 @@
 package survey
 
+import commandObjects.AnagramCO
 import commandObjects.EntityQuestionaireCO
 import enums.EntityQuestionaireResponse
+import enums.QuestionType
 import enums.StudyType
 import grails.converters.JSON
 
@@ -44,9 +46,42 @@ class QuizController {
         Candidate candidate = entityQuestionaireCO.candidate
         candidate.entityQuestionaireScore = entityQuestionaireScore
         if (candidate.save(flush: true)) {
-            render([success: "Score saved successfully"] as JSON)
+            if (candidate.studyType) {
+                render(template: '/quiz/round1', model: [candidate: candidate])
+            } else {
+                render([fail: "Error! Please try again."] as JSON)
+            }
         } else {
             render([fail: "Error while saving score. Please try again"] as JSON)
         }
+    }
+
+    def checkAnangramAnswer(AnagramCO anagramCO) {
+        if (anagramCO.answer?.toUpperCase() == anagramCO.question?.correctResponse?.toUpperCase()) {
+            render([success: "Correct Answer"] as JSON)
+        } else {
+            render([fail: "Incorrect Answer"] as JSON)
+        }
+    }
+
+    def moveToNextLevel(Long candidateId) {
+        Boolean showNextLevel = true
+        Candidate candidate = Candidate.get(candidateId)
+        List answerList = params.list('answerList[]')
+        Question.findAllByQuestionType(QuestionType.SIMPLE_ANAGRAM).eachWithIndex { val, i ->
+            if (!(val.correctResponse == answerList?.get(i)?.toString()?.toUpperCase()) && showNextLevel) {
+                showNextLevel = false
+            }
+        }
+        if (showNextLevel) {
+            render(template: '/quiz/round2', model: [candidate: candidate])
+        } else {
+            render([fail: "Wrong Answers! Please try again."] as JSON)
+
+        }
+    }
+
+    def quit(Long candidateId) {
+        render(template: '/quiz/thankYouPage')
     }
 }

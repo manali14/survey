@@ -26,17 +26,17 @@
 <script type="text/javascript">
     $('#submitEntityQuestionaire').on('click', function () {
         var data = [];
-        $.each($('input[type=radio]'), function () {
+        $.each($('input[type=radio]:checked'), function () {
             data.push($(this).val());
         });
         $.ajax({
             url: "/quiz/saveEntityQuestionaireScore",
             data: {responses: data, candidate: $('#candidateId').val()},
             success: function (response) {
-                if (response.success) {
-                    console.log(response.success);
+                if (response.fail) {
+                    warningReport(response.success);
                 } else {
-                    console.log(response.fail);
+                    $('.widget-main').html(response);
                 }
             }
 

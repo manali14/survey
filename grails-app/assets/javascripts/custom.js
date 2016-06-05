@@ -68,3 +68,37 @@ $('#candidateRegisterForm').on('submit', function (e) {
         }
     });
 });
+
+function checkAnswer(obj, questionId) {
+    removePreviousOptions(obj);
+    if (obj.val().trim().length == 4) {
+        $.ajax({
+            url: "/quiz/checkAnangramAnswer",
+            data: {answer: obj.val().trim(), question: questionId},
+            success: function (response) {
+                if (response.success) {
+                    obj.after('<i class="ace-icon fa fa-check tickMark"></i>');
+                    if ($('.tickMark').length == 2) {
+                        $('#startFirstTest').attr('disabled', false);
+                    }
+                } else {
+                    obj.after('<i class="ace-icon fa fa-times cross"></i>');
+                }
+            }
+        });
+    } else {
+        $('#startFirstTest').attr('disabled', true);
+    }
+}
+
+function removePreviousOptions(obj) {
+    obj.parent().find($('.tickMark')).remove();
+    obj.parent().find($('.cross')).remove();
+}
+
+function checkUnsolvableAnswer(obj, description) {
+    removePreviousOptions(obj);
+    if (obj.val().trim().length == description.length) {
+        obj.after('<i class="ace-icon fa fa-times cross"></i>');
+    }
+}
