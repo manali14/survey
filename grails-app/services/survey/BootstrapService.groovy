@@ -7,7 +7,16 @@ import grails.transaction.Transactional
 class BootstrapService {
 
     def initData() {
+        createADminUserAndRole()
         createQuizAndAddQuestions()
+    }
+
+    void createADminUserAndRole() {
+        if (!User.count) {
+            Role role = new Role(authority: "ROLE_ADMIN").save(flush: true)
+            User user = new User(username: "implicitTheoriesAdmin", password: "password").save(flush: true)
+            UserRole.create(user, role, true)
+        }
     }
 
     void createQuizAndAddQuestions() {

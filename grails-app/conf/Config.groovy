@@ -88,7 +88,7 @@ grails.hibernate.osiv.readonly = false
 environments {
     development {
         grails.logging.jul.usebridge = true
-        grails.app.context="/"
+        grails.app.context = "/"
     }
     production {
         grails.logging.jul.usebridge = false
@@ -121,3 +121,20 @@ log4j.main = {
             'survey.*',
             'grails.app'
 }
+
+// Added by the Spring Security Core plugin:
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'survey.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'survey.UserRole'
+grails.plugin.springsecurity.authority.className = 'survey.Role'
+grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+        '/'              : ['permitAll'],
+        '/index'         : ['permitAll'],
+        '/assets/**'     : ['permitAll'],
+        '/**/js/**'      : ['permitAll'],
+        '/**/css/**'     : ['permitAll'],
+        '/**/images/**'  : ['permitAll'],
+        '/**/favicon.ico': ['permitAll'],
+        '/quiz/**'       : ['permitAll'],
+        '/user/**'       : ['permitAll']
+]
+
