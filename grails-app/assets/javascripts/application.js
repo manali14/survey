@@ -13,15 +13,18 @@
 //= require jquery.dataTables.bootstrap.min
 //= require dataTables.colVis.min
 //= require dataTables.tableTools.min
+//= require bootstrap-datepicker.min
+//= require ace.min
+//= require report
 //= require jquery.validate.min
-//= require_tree .
+//= require custom
 //= require_self
 
 if (typeof jQuery !== 'undefined') {
-    (function($) {
-        $('#spinner').ajaxStart(function() {
+    (function ($) {
+        $('#spinner').ajaxStart(function () {
             $(this).fadeIn();
-        }).ajaxStop(function() {
+        }).ajaxStop(function () {
             $(this).fadeOut();
         });
     })(jQuery);

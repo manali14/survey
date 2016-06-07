@@ -91,9 +91,8 @@
         <div class="clearfix">
 
             <input type="submit"
-                   class=" pull-right btn btn-sm btn-success bigger-110"
-                   value="Register">
-
+            class=" pull-right btn btn-sm btn-success bigger-110"
+            value="Register">
         </div>
     </fieldset>
 </g:form>
