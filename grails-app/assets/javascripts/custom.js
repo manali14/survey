@@ -22,7 +22,7 @@ $(document).ready(function () {
             },
             mobileNumber: {
                 required: true,
-                length: 10,
+                maxlength: 10,
                 number: true
             },
             age: {
@@ -36,11 +36,11 @@ $(document).ready(function () {
         },
         messages: {
             email: {
-                required: "Please enter your Email"
+                email: "Please enter valid Email"
             },
             mobileNumber: {
                 required: "Please enter your 10 digit Mobile Number",
-                length: "Please enter valid Mobile Number",
+                maxlength: "Please enter valid Mobile Number",
                 number: "Please enter valid Mobile Number"
             },
             age: {
