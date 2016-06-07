@@ -22,8 +22,9 @@ $(document).ready(function () {
             },
             mobileNumber: {
                 required: true,
-                length: 10,
-                number: true
+                number: true,
+                minlength: 10,
+                maxlength: 10
             },
             age: {
                 required: true,
