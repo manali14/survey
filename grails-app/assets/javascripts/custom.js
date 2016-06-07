@@ -22,8 +22,9 @@ $(document).ready(function () {
             },
             mobileNumber: {
                 required: true,
-                maxlength: 10,
-                number: true
+                number: true,
+                minlength: 10,
+                maxlength: 10
             },
             age: {
                 required: true,
@@ -41,6 +42,7 @@ $(document).ready(function () {
             mobileNumber: {
                 required: "Please enter your 10 digit Mobile Number",
                 maxlength: "Please enter valid Mobile Number",
+                minlength: "Please enter valid Mobile Number",
                 number: "Please enter valid Mobile Number"
             },
             age: {
