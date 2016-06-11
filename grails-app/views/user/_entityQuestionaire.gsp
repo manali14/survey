@@ -55,7 +55,7 @@
                 if (placement) {
                     $(placement).append(error)
                 } else {
-                    error.insertAfter(element + ":last");
+                    error.insertAfter(element);
                 }
             }
         });

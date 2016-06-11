@@ -120,7 +120,7 @@ class QuizController {
         CandidateResponse candidateResponse = new CandidateResponse()
         candidateResponse.properties = adaptationScalePartA.properties
         candidateResponse.answer = adaptationScalePartA.options?.join(", ")
-        adaptationScalePartA.other ? ("${candidateResponse.answer}+ ,${adaptationScalePartA.other}") : null
+        adaptationScalePartA.other ? (candidateResponse.answer = "${candidateResponse.answer} ,${adaptationScalePartA.other}") : null
         candidateResponse.save(flush: true)
         render(template: '/quiz/adaptationScaleStudy1PartB', model: [candidate: adaptationScalePartA.candidate])
     }
