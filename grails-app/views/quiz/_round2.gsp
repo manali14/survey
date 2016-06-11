@@ -1,6 +1,6 @@
 <%@ page import="enums.QuestionType; survey.Question; enums.StudyType" %>
 <g:hiddenField value="${candidate?.id}" name="candidateId"/>
-<g:if test="${candidate.studyType == StudyType.STUDY1}">
+<g:if test="${candidate.studyType == StudyType.STUDY1 || candidate.studyType == StudyType.STUDY2}">
     <div class="margin-top20">
         <g:each in="${Question.findAllByQuestionType(QuestionType.UNSOLVABLE_ANAGRAM_STUDY1)}" var="question"
                 status="i">
@@ -14,7 +14,7 @@
 
     <a href="#" class="btn btn-success margin-top20" id="quit" onclick="quit()">Quit</a>
 </g:if>
-<g:if test="${candidate.studyType == StudyType.STUDY2}">
+<g:if test="${candidate.studyType == StudyType.STUDY3}">
     <div class="margin-top20">
         <g:each in="${Question.findByQuestionType(QuestionType.UNSOLVABLE_ANAGRAM_STUDY2)}" var="question"
                 status="i">

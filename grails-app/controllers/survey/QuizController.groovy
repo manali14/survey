@@ -99,7 +99,7 @@ class QuizController {
             }
             candidate.save(flush: true)
         }
-        if (candidate?.studyType == StudyType.STUDY1) {
+        if (candidate?.studyType == StudyType.STUDY1 || candidate?.studyType == StudyType.STUDY2) {
             render(template: '/quiz/adaptationScaleStudy1PartA', model: [candidate: candidate])
         } else {
             render(template: '/quiz/thankYouPage')
