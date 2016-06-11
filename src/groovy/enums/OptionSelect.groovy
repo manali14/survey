@@ -2,5 +2,6 @@ package enums
 
 enum OptionSelect {
     SINGLE,
-    MULTIPLE
+    MULTIPLE,
+    EXTRA_TEXT
 }

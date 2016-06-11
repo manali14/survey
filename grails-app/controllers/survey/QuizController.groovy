@@ -22,7 +22,7 @@ class QuizController {
     }
 
     def study3() {
-
+        [studyType: StudyType.STUDY3]
     }
 
     def playQuiz(Long id) {

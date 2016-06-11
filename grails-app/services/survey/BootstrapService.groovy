@@ -1,6 +1,7 @@
 package survey
 
 import enums.AdaptationScaleResponses
+import enums.OptionSelect
 import enums.QuestionType
 import grails.transaction.Transactional
 
@@ -70,7 +71,7 @@ class BootstrapService {
                 question4.addToOptions(new QuestionOption(description: it, question: question).save(flush: true))
             }
             question4.save(flush: true)
-            Question question5 = new Question(description: "What do you feel about your ability/intelligence after performing this test?", questionType: QuestionType.ADAPTATION_SCALE_STUDY1_PARTB).save(flush: true)
+            Question question5 = new Question(description: "What do you feel about your ability/intelligence after performing this test?", questionType: QuestionType.ADAPTATION_SCALE_STUDY1_PARTB, optionSelect: OptionSelect.EXTRA_TEXT).save(flush: true)
             ["I have high ability but I wasn’t able to solve this one!", "I given a chance to work on similar anagrams, I will be able to solve such anagrams.", "I do not have the ability"].each {
                 question5.addToOptions(new QuestionOption(description: it, question: question).save(flush: true))
             }
@@ -90,7 +91,7 @@ class BootstrapService {
                 question8.addToOptions(new QuestionOption(description: it, question: question).save(flush: true))
             }
             question8.save(flush: true)
-            Question question9 = new Question(description: "I feel that putting in a lot of effort gives me a sense of: (You can chose more than one answer)", questionType: QuestionType.ADAPTATION_SCALE_STUDY1_PARTB).save(flush: true)
+            Question question9 = new Question(description: "I feel that putting in a lot of effort gives me a sense of: (You can chose more than one answer)", questionType: QuestionType.ADAPTATION_SCALE_STUDY1_PARTB, optionSelect: OptionSelect.MULTIPLE).save(flush: true)
             ["Pride", "Happiness", "Shame", "Sadness", "Relief", "Disappointment", "Monotony (being Bored)"].each {
                 question9.addToOptions(new QuestionOption(description: it, question: question).save(flush: true))
             }
