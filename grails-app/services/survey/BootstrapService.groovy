@@ -12,6 +12,7 @@ class BootstrapService {
         createADminUserAndRole()
         createQuizAndAddQuestions()
         createAdaptationScaleQuestions()
+        createGoalQuestions()
     }
 
     void createADminUserAndRole() {
@@ -56,46 +57,85 @@ class BootstrapService {
             question.save(flush: true)
             Question question1 = new Question(description: "Rate the difficulty level of the anagram presented to you.", questionType: QuestionType.ADAPTATION_SCALE_STUDY1_PARTB).save(flush: true)
             ["Very easy", "Easy", "Moderately difficult", "Difficult", "Very difficult"].each {
-                question1.addToOptions(new QuestionOption(description: it, question: question).save(flush: true))
+                question1.addToOptions(new QuestionOption(description: it, question: question1).save(flush: true))
             }
             question1.save(flush: true)
             Question question2 = new Question(description: "Would you want to spend more time doing these kinds of anagrams?", questionType: QuestionType.ADAPTATION_SCALE_STUDY1_PARTB).save(flush: true)
             ["Yes", "No"].each {
-                question2.addToOptions(new QuestionOption(description: it, question: question).save(flush: true))
+                question2.addToOptions(new QuestionOption(description: it, question: question2).save(flush: true))
             }
             question2.save(flush: true)
             Question question3 = new Question(description: "If no, what kind of tasks would you want to do?", questionType: QuestionType.ADAPTATION_SCALE_STUDY1_PARTB).save(flush: true)
             question3.save(flush: true)
             Question question4 = new Question(description: "I would want to avoid doing such anagrams.", questionType: QuestionType.ADAPTATION_SCALE_STUDY1_PARTB).save(flush: true)
             ["Yes", "No"].each {
-                question4.addToOptions(new QuestionOption(description: it, question: question).save(flush: true))
+                question4.addToOptions(new QuestionOption(description: it, question: question4).save(flush: true))
             }
             question4.save(flush: true)
             Question question5 = new Question(description: "What do you feel about your ability/intelligence after performing this test?", questionType: QuestionType.ADAPTATION_SCALE_STUDY1_PARTB, optionSelect: OptionSelect.EXTRA_TEXT).save(flush: true)
             ["I have high ability but I wasn’t able to solve this one!", "I given a chance to work on similar anagrams, I will be able to solve such anagrams.", "I do not have the ability"].each {
-                question5.addToOptions(new QuestionOption(description: it, question: question).save(flush: true))
+                question5.addToOptions(new QuestionOption(description: it, question: question5).save(flush: true))
             }
             question5.save(flush: true)
             Question question6 = new Question(description: "I felt nervous that I will be judged about my ability based on this", questionType: QuestionType.ADAPTATION_SCALE_STUDY1_PARTB).save(flush: true)
             ["Yes", "No"].each {
-                question6.addToOptions(new QuestionOption(description: it, question: question).save(flush: true))
+                question6.addToOptions(new QuestionOption(description: it, question: question6).save(flush: true))
             }
             question6.save(flush: true)
             Question question7 = new Question(description: "I found the test", questionType: QuestionType.ADAPTATION_SCALE_STUDY1_PARTB).save(flush: true)
             ["Interesting", "Boring", "Difficult", "Easy"].each {
-                question7.addToOptions(new QuestionOption(description: it, question: question).save(flush: true))
+                question7.addToOptions(new QuestionOption(description: it, question: question7).save(flush: true))
             }
             question7.save(flush: true)
             Question question8 = new Question(description: "I have put a great effort in this test", questionType: QuestionType.ADAPTATION_SCALE_STUDY1_PARTB).save(flush: true)
             ["Yes", "No"].each {
-                question8.addToOptions(new QuestionOption(description: it, question: question).save(flush: true))
+                question8.addToOptions(new QuestionOption(description: it, question: question8).save(flush: true))
             }
             question8.save(flush: true)
             Question question9 = new Question(description: "I feel that putting in a lot of effort gives me a sense of: (You can chose more than one answer)", questionType: QuestionType.ADAPTATION_SCALE_STUDY1_PARTB, optionSelect: OptionSelect.MULTIPLE).save(flush: true)
             ["Pride", "Happiness", "Shame", "Sadness", "Relief", "Disappointment", "Monotony (being Bored)"].each {
-                question9.addToOptions(new QuestionOption(description: it, question: question).save(flush: true))
+                question9.addToOptions(new QuestionOption(description: it, question: question9).save(flush: true))
             }
             question9.save(flush: true)
+        }
+    }
+
+    void createGoalQuestions() {
+        if (!Question.countByQuestionType(QuestionType.GOALS_1)) {
+            Question question1 = new Question(description: "My aim is", questionType: QuestionType.GOALS_1).save(flush: true)
+            ["to completely master the material presented in this class.", "to do well compared to other students"].each {
+                question1.addToOptions(new QuestionOption(description: it, question: question1).save(flush: true))
+            }
+            Question question2 = new Question(description: "My goal is", questionType: QuestionType.GOALS_1).save(flush: true)
+            ["to learn as much as possible.", "perform well relative to other students."].each {
+                question2.addToOptions(new QuestionOption(description: it, question: question2).save(flush: true))
+            }
+            Question question3 = new Question(description: "I am striving to", questionType: QuestionType.GOALS_1).save(flush: true)
+            ["understand the content as thoroughly as possible.", "perform better than the other students."].each {
+                question3.addToOptions(new QuestionOption(description: it, question: question3).save(flush: true))
+            }
+            Question question4 = new Question(description: "I am striving to", questionType: QuestionType.GOALS_1).save(flush: true)
+            ["avoid performing worse than others.", "avoid an incomplete understanding of the course material."].each {
+                question4.addToOptions(new QuestionOption(description: it, question: question4).save(flush: true))
+            }
+        }
+        if (!Question.countByQuestionType(QuestionType.GOALS_2)) {
+            Question question5 = new Question(description: "My aim is", questionType: QuestionType.GOALS_2).save(flush: true)
+            ["to completely master the material presented in this class.", "to do well compared to other students", "Both of the above"].each {
+                question5.addToOptions(new QuestionOption(description: it, question: question5).save(flush: true))
+            }
+            Question question6 = new Question(description: "My goal is", questionType: QuestionType.GOALS_2).save(flush: true)
+            ["to learn as much as possible.", "perform well relative to other students.", "Both of the above"].each {
+                question6.addToOptions(new QuestionOption(description: it, question: question6).save(flush: true))
+            }
+            Question question7 = new Question(description: "I am striving to", questionType: QuestionType.GOALS_2).save(flush: true)
+            ["understand the content as thoroughly as possible.", "perform better than the other students.", "Both of the above"].each {
+                question7.addToOptions(new QuestionOption(description: it, question: question7).save(flush: true))
+            }
+            Question question8 = new Question(description: "I am striving to", questionType: QuestionType.GOALS_2).save(flush: true)
+            ["avoid performing worse than others.", "avoid an incomplete understanding of the course material.", "Both of the above"].each {
+                question8.addToOptions(new QuestionOption(description: it, question: question8).save(flush: true))
+            }
         }
     }
 }

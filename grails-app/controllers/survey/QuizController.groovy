@@ -1,7 +1,7 @@
 package survey
 
 import commandObjects.AdaptationScalePartACO
-import commandObjects.AdaptationScalePartBCO
+import commandObjects.ResponseCO
 import commandObjects.AnagramCO
 import commandObjects.EntityQuestionaireCO
 import enums.EntityQuestionaireResponse
@@ -50,7 +50,9 @@ class QuizController {
         Candidate candidate = entityQuestionaireCO.candidate
         candidate.entityQuestionaireScore = entityQuestionaireScore
         if (candidate.save(flush: true)) {
-            if (candidate.studyType) {
+            if (candidate.studyType in [StudyType.STUDY1, StudyType.STUDY2]) {
+                render(template: '/quiz/goals', model: [candidate: candidate])
+            } else if (candidate.studyType == StudyType.STUDY3) {
                 render(template: '/quiz/round1', model: [candidate: candidate])
             } else {
                 render([fail: "Error! Please try again."] as JSON)
@@ -58,6 +60,11 @@ class QuizController {
         } else {
             render([fail: "Error while saving score. Please try again"] as JSON)
         }
+    }
+
+    def saveGoalsData(ResponseCO responseCO) {
+        quizService.saveCandidateResponseDetails(responseCO)
+        render(template: '/quiz/round1', model: [candidate: responseCO.candidate])
     }
 
     def checkAnangramAnswer(AnagramCO anagramCO) {
@@ -125,8 +132,8 @@ class QuizController {
         render(template: '/quiz/adaptationScaleStudy1PartB', model: [candidate: adaptationScalePartA.candidate])
     }
 
-    def submitQuiz(AdaptationScalePartBCO adaptationScalePartBCO) {
-        quizService.saveAdaptationScaleDetails(adaptationScalePartBCO)
+    def submitQuiz(ResponseCO adaptationScalePartBCO) {
+        quizService.saveCandidateResponseDetails(adaptationScalePartBCO)
         render(template: '/quiz/thankYouPage')
     }
 }

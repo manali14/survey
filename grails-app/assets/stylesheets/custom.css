@@ -64,3 +64,9 @@ input[type=number]::-webkit-outer-spin-button {
     font-style: oblique;
     font-variant: small-caps;
 }
+
+.heading {
+    font-size: medium;
+    font-style: italic;
+    font-weight: bold;
+}
