@@ -1,5 +1,7 @@
 package survey
 
+import commandObjects.AdaptationScalePartACO
+import commandObjects.AdaptationScalePartBCO
 import commandObjects.AnagramCO
 import commandObjects.EntityQuestionaireCO
 import enums.EntityQuestionaireResponse
@@ -9,6 +11,7 @@ import grails.converters.JSON
 import org.apache.commons.lang.time.DurationFormatUtils
 
 class QuizController {
+    def quizService
 
     def study1() {
         [studyType: StudyType.STUDY1]
@@ -96,7 +99,11 @@ class QuizController {
             }
             candidate.save(flush: true)
         }
-        render(template: '/quiz/thankYouPage')
+        if (candidate?.studyType == StudyType.STUDY1) {
+            render(template: '/quiz/adaptationScaleStudy1PartA', model: [candidate: candidate])
+        } else {
+            render(template: '/quiz/thankYouPage')
+        }
     }
 
     def nextAnagram(AnagramCO anagramCO) {
@@ -106,5 +113,20 @@ class QuizController {
         candidate.save(flush: true)
         Question nextQuestion = Question.findByQuestionTypeAndIdNotInList(QuestionType.UNSOLVABLE_ANAGRAM_STUDY2, [anagramCO?.question?.id])
         render(template: '/quiz/round2Anagram', model: [question: nextQuestion, candidate: candidate])
+    }
+
+    def showAdaptationScaleStudy1PartB(AdaptationScalePartACO adaptationScalePartA) {
+        adaptationScalePartA.options = params.list('options[]')
+        CandidateResponse candidateResponse = new CandidateResponse()
+        candidateResponse.properties = adaptationScalePartA.properties
+        candidateResponse.answer = adaptationScalePartA.options?.join(", ")
+        adaptationScalePartA.other ? ("${candidateResponse.answer}+ ,${adaptationScalePartA.other}") : null
+        candidateResponse.save(flush: true)
+        render(template: '/quiz/adaptationScaleStudy1PartB', model: [candidate: adaptationScalePartA.candidate])
+    }
+
+    def submitQuiz(AdaptationScalePartBCO adaptationScalePartBCO) {
+        quizService.saveAdaptationScaleDetails(adaptationScalePartBCO)
+        render(template: '/quiz/thankYouPage')
     }
 }

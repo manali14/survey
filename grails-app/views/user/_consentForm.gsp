@@ -26,7 +26,7 @@
 
             <span class="block input-icon input-icon-right col-lg-10">
                 <span class="pull-left">
-                    <input type="radio" name="gender" value="${Gender.MALE}">Male
+                    <input type="radio" name="gender" value="${Gender.MALE}" checked>Male
                 </span>
                 <span class="margin-left20">
                     <input type="radio" name="gender" value="${Gender.FEMALE}">Female
@@ -48,7 +48,7 @@
                     <input type="radio" name="caste" value="${Caste.OBC}">OBC
                 </span>
                 <span class="margin-left20">
-                    <input type="radio" name="caste" value="${Caste.GENERAL}">GENERAL
+                    <input type="radio" name="caste" value="${Caste.GENERAL}" checked>GENERAL
                 </span>
             </span>
         </label>
@@ -91,8 +91,8 @@
         <div class="clearfix">
 
             <input type="submit"
-            class=" pull-right btn btn-sm btn-success bigger-110"
-            value="Register">
+                   class=" pull-right btn btn-sm btn-success bigger-110"
+                   value="Register">
         </div>
     </fieldset>
 </g:form>

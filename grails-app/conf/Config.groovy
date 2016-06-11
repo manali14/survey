@@ -127,14 +127,16 @@ grails.plugin.springsecurity.userLookup.userDomainClassName = 'survey.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'survey.UserRole'
 grails.plugin.springsecurity.authority.className = 'survey.Role'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-        '/'              : ['permitAll'],
-        '/index'         : ['permitAll'],
-        '/assets/**'     : ['permitAll'],
-        '/**/js/**'      : ['permitAll'],
-        '/**/css/**'     : ['permitAll'],
-        '/**/images/**'  : ['permitAll'],
-        '/**/favicon.ico': ['permitAll'],
-        '/quiz/**'       : ['permitAll'],
-        '/user/**'       : ['permitAll']
+        '/'                   : ['permitAll'],
+        '/index'              : ['permitAll'],
+        '/assets/**'          : ['permitAll'],
+        '/**/js/**'           : ['permitAll'],
+        '/**/css/**'          : ['permitAll'],
+        '/**/images/**'       : ['permitAll'],
+        '/**/favicon.ico'     : ['permitAll'],
+        '/quiz/**'            : ['permitAll'],
+        '/user/**'            : ['permitAll'],
+        '/console*/**'        : ["ROLE_ADMIN"],
+        "/plugins/console*/**": ["ROLE_ADMIN"]
 ]
 
