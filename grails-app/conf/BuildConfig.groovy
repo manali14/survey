@@ -57,6 +57,7 @@ grails.project.dependency.resolution = {
     plugins {
         // plugins for the build system only
         build ":tomcat:7.0.55.2" // or ":tomcat:8.0.20"
+        runtime "org.grails.plugins:grails-emoji:0.2"
 
         // plugins for the compile step
         compile ":scaffolding:2.1.2"

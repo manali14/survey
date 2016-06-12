@@ -1,4 +1,4 @@
-<%@ page import="enums.QuestionType; survey.Question" %>
+<%@ page import="enums.AdaptationScaleResponses; enums.QuestionType; survey.Question" %>
 <g:form name="adaptationScalePartA">
     <g:hiddenField name="candidateId" value="${candidate?.id}"/>
     <% Question question = Question.findByQuestionType(QuestionType.ADAPTATION_SCALE_STUDY1_PARTA) %>
@@ -7,7 +7,11 @@
     <g:each in="${question?.options?.findResults { it }}" var="option">
         <div>
             <input type="checkbox" name="option" value="${option?.description}" class="required"
-                   data-error="#error">${option?.description}<br/>
+                   data-error="#error">${option?.description}
+        <emoji:toHtml size="22">
+            ${AdaptationScaleResponses.valueOf(option?.description)?.emojiCode}
+        </emoji:toHtml>
+            <br/>
         </div>
     </g:each>
     <span id="error"></span>
