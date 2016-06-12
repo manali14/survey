@@ -6,7 +6,7 @@ import grails.plugin.springsecurity.annotation.Secured
 class AdminController {
 
     def index() {
-        [candidateList: Candidate.list()]
+        [candidateList: Candidate.list([order: "desc", sort: "dateCreated"])]
     }
 
     def fetchUserInfo(Long id) {
