@@ -119,3 +119,13 @@ function quit() {
         }
     })
 }
+$('.showUserInfo').on('click', function () {
+    $.ajax({
+        url: '/admin/fetchUserInfo',
+        data: {id: $(this).data('candidate-id')},
+        success: function (data) {
+            $('.userInfo').find($('.bootbox-body')).html(data);
+            $('.userInfo').modal('show');
+        }
+    });
+});

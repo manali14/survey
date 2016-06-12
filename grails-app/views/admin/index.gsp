@@ -37,8 +37,16 @@
         <tbody>
         <g:each in="${candidateList}" var="candidate">
             <tr>
-                <td>${candidate?.name}</td>
-                <td>${candidate?.email}</td>
+                <td>
+                    <a href="#" class="showUserInfo" data-candidate-id="${candidate.id}">
+                        ${candidate?.name}
+                    </a>
+                </td>
+                <td>
+                    <a href="#" class="showUserInfo" data-candidate-id="${candidate.id}">
+                        ${candidate?.email}
+                    </a>
+                </td>
                 <td>${candidate?.mobileNumber}</td>
                 <td>${candidate?.school}</td>
                 <td>${candidate?.age}</td>
@@ -53,5 +61,6 @@
         </g:each>
         </tbody>
     </table>
+</div>
 </body>
 </html>

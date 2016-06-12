@@ -19,7 +19,7 @@
 </head>
 
 <body class="login-layout light-login">
-
+<g:render template="/user/userDetails"/>
 <div id="navbar" class="navbar navbar-default ace-save-state navbar-fixed-top">
     <div class="navbar-container ace-save-state" id="navbar-container">
 
